@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tom Mitcham</title>
+  <meta name="description"
+        content="Tom Mitcham — Research Fellow in Earth System Modelling at the Met Office
+                 and NCAS, University of Leeds. Glaciologist and Earth System modeller,
+                 specialising in ice sheet dynamics and coupled climate modelling." />
+  <meta property="og:title"       content="Tom Mitcham" />
+  <meta property="og:description" content="Research Fellow in Earth System Modelling
+                                            at the Met Office and NCAS, University of Leeds." />
+  <meta property="og:type"        content="website" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f9f8f6;
+      --surface: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b6b6b;
+      --rule: #a09b94;
+      --rule-inner: #e0ddd8;
+      --accent: #2a5caa;
+      --max-w: 740px;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111110;
+        --surface: #1a1918;
+        --text: #e8e6e2;
+        --muted: #9a9590;
+        --rule: #3a3733;
+        --rule-inner: #2a2825;
+        --accent: #6b9de8;
+      }
+    }
+
+    @media print {
+      nav, .back-to-top { display: none; }
+      body { font-size: 11pt; color: #000; background: #fff; }
+      main { max-width: 100%; padding: 1cm 2cm; }
+      a { color: inherit; }
+      .pub-links a::after { content: " (" attr(href) ")"; font-size: 8pt; color: #555; }
+      .pub-abstract, .pub-bibtex { display: none !important; }
+      section { break-inside: avoid; }
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ── Nav ─────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--rule);
+      z-index: 10;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 0;
+      list-style: none;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      justify-content: center;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    nav ul::-webkit-scrollbar { display: none; }
+
+    nav a {
+      display: block;
+      padding: 1rem 1.2rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+      white-space: nowrap;
+    }
+
+    nav a:hover { color: var(--accent); }
+    nav a.active { color: var(--accent); }
+
+    /* ── Main layout ─────────────────────────────────── */
+    main {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 3rem 1.5rem 0;
+    }
+
+    /* ── Header ──────────────────────────────────────── */
+    header {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 1.2rem;
+    }
+
+    .avatar {
+      flex-shrink: 0;
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      background: var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .avatar svg { opacity: 0.35; }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+    .header-text h1 {
+      font-family: var(--serif);
+      font-size: 1.9rem;
+      font-weight: normal;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.2rem;
+    }
+
+    .header-text .title {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .header-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.2rem;
+      font-size: 0.85rem;
+    }
+
+    .header-links a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .header-links a:hover { text-decoration: underline; }
+
+    /* ── Sections ────────────────────────────────────── */
+    section {
+      margin-bottom: 1.2rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    section:last-child { border-bottom: none; }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: normal;
+      letter-spacing: 0.01em;
+      margin-bottom: 0.8rem;
+      color: var(--text);
+    }
+
+    p { margin-bottom: 0.9rem; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── Research interests ──────────────────────────── */
+    .research-list {
+      list-style: none;
+      margin-top: 0.8rem;
+    }
+
+    .research-list li {
+      padding: 0.3rem 0;
+      padding-left: 1.1rem;
+      position: relative;
+      font-size: 0.93rem;
+    }
+
+    .research-list li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: var(--muted);
+    }
+
+    /* ── CV ──────────────────────────────────────────── */
+    .cv-list { list-style: none; padding-left: 1rem; }
+
+    .cv-list li {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 0 1.5rem;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--rule-inner);
+      font-size: 0.92rem;
+    }
+
+    .cv-list li:first-child { padding-top: 0; }
+    .cv-list li:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .cv-year {
+      color: var(--muted);
+      font-size: 0.84rem;
+      padding-top: 0.1rem;
+      white-space: nowrap;
+    }
+
+    .cv-role { font-weight: 500; }
+    .cv-place { color: var(--muted); font-size: 0.87rem; margin-top: 0.1rem; }
+    .cv-place a { color: inherit; text-decoration: none; }
+    .cv-place a:hover { text-decoration: underline; }
+
+    .cv-subsection {
+      font-family: var(--serif);
+      font-size: 0.9rem;
+      font-weight: normal;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin: 1.4rem 0 0.4rem;
+    }
+
+    .cv-subsection:first-of-type { margin-top: 0; }
+
+    /* ── Publications ────────────────────────────────── */
+    .pub-list { list-style: none; padding-left: 1rem; }
+
+    .pub-list li {
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--rule-inner);
+      font-size: 0.92rem;
+    }
+
+    .pub-list li:first-child { padding-top: 0; }
+    .pub-list li:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .pub-title {
+      font-style: italic;
+      color: var(--text);
+    }
+
+    .pub-title a { color: inherit; text-decoration: underline; }
+
+    .pub-authors { color: var(--muted); font-size: 0.87rem; margin-top: 0.15rem; }
+    .pub-venue { color: var(--muted); font-size: 0.87rem; }
+
+    .pub-links { margin-top: 0.35rem; }
+
+    .pub-links a {
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-decoration: none;
+      margin-right: 0.8rem;
+    }
+    .pub-links a:hover { text-decoration: underline; }
+
+    .pub-links button {
+      font-size: 0.8rem;
+      color: var(--accent);
+      background: none;
+      border: none;
+      padding: 0;
+      margin-right: 0.8rem;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .pub-links button:hover { text-decoration: underline; }
+
+    .pub-abstract {
+      display: none;
+      margin-top: 0.6rem;
+      font-size: 0.87rem;
+      color: var(--muted);
+      line-height: 1.65;
+      padding: 0.55rem 0.8rem;
+      border-left: 2px solid var(--rule-inner);
+    }
+    .pub-abstract.open { display: block; }
+
+    .pub-bibtex {
+      display: none;
+      margin-top: 0.6rem;
+      font-size: 0.77rem;
+      font-family: "Courier New", Courier, monospace;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--rule-inner);
+      border-radius: 3px;
+      padding: 0.6rem 0.8rem;
+      white-space: pre;
+      overflow-x: auto;
+    }
+    .pub-bibtex.open { display: block; }
+
+    /* ── Teaching ────────────────────────────────────── */
+    .course-list { list-style: none; padding-left: 1rem; }
+
+    .course-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--rule-inner);
+      font-size: 0.92rem;
+      gap: 1rem;
+    }
+
+    .course-list li:first-child { padding-top: 0; }
+    .course-list li:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .course-term { color: var(--muted); font-size: 0.84rem; white-space: nowrap; }
+
+    /* ── About inline links ──────────────────────────── */
+    #about p a { color: inherit; text-decoration: underline; }
+
+    /* ── Contact ─────────────────────────────────────── */
+    address {
+      font-style: normal;
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 2;
+    }
+
+    address a { color: var(--accent); text-decoration: none; }
+    address a:hover { text-decoration: underline; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem 2rem;
+    }
+
+    /* ── Back to top ─────────────────────────────────── */
+    .back-to-top {
+      display: block;
+      text-align: center;
+      margin-top: 2.5rem;
+      padding: 1rem;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .back-to-top:hover { color: var(--accent); }
+
+    /* ── Responsive ──────────────────────────────────── */
+    @media (max-width: 520px) {
+      header { flex-direction: column; gap: 1.2rem; }
+      .avatar { width: 110px; height: 110px; }
+      nav ul { justify-content: flex-start; padding: 0 0.5rem; }
+      nav a { padding: 0.75rem 0.7rem; font-size: 0.82rem; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#cv">CV</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- ── Header ── -->
+    <header>
+      <div class="header-text">
+        <h1>Tom Mitcham</h1>
+        <p class="title"><b>Research Fellow in Earth System Modelling </b></p>
+        <p class="title">
+          Met Office, Exeter<br>
+          National Centre for Atmospheric Science (NCAS), University of Leeds
+        </p>
+        <div class="header-links">
+          <div style="width:100%">
+            <a href="mailto:thomas.mitcham@metoffice.gov.uk" target="_blank">thomas.mitcham@metoffice.gov.uk</a>
+          </div>
+          <a href="https://scholar.google.co.uk/citations?user=I32lzgUAAAAJ&hl=en&inst=10389243673639785577"
+             target="_blank">Google Scholar</a>
+          <a href="https://orcid.org/0000-0003-1688-2725" target="_blank">ORCID</a>
+          <a href="https://github.com/tmitcham" target="_blank">GitHub</a>
+          <!-- <a href="cv.pdf" target="_blank">CV (PDF)</a> -->
+        </div>
+      </div>
+      <div class="avatar">
+        <img src="Headshot2024.jpg" alt="Tom Mitcham">
+      </div>
+    </header>
+
+    <!-- ── About ── -->
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        I am a postdoctoral research fellow in Earth System Modelling, based at the
+        <a href="https://www.metoffice.gov.uk/research/climate" target="_blank">Met Office</a>
+        in Exeter, affiliated with the National Centre for Atmospheric Science
+        (<a href="https://environment.leeds.ac.uk/see-partnership/doc/ncas-research-centre-leeds"
+            target="_blank">NCAS</a>) at the University of Leeds, and a member of the UK's
+        Earth System Model (<a href="https://ukesm.ac.uk/" target="_blank">UKESM</a>) core
+        development team. My current research is focussed on the development of a new,
+        hybrid-resolution version of UKESM, and applying it to study interactions between
+        the North Atlantic subpolar gyre and the Greenland Ice Sheet, and the potential for
+        abrupt change as part of the ARIA-funded
+        <a href="https://promote-tipping-points.ac.uk/" target="_blank">PROMOTE</a> project.
+      </p>
+      <p>
+        Previously, I was a member of the Centre for Polar Observation and Modelling
+        (<a href="https://cpom.org.uk/" target="_blank">CPOM</a>), and the
+        <a href="https://bristol-glaciology.github.io/" target="_blank">Bristol Glaciology Centre</a>,
+        contributing to the UK's national capability in ice sheet modelling and to the UKESM's
+        <a href="https://terrafirma.ac.uk/" target="_blank">TerraFIRMA</a> project, exploring
+        the potential for rapid changes and tipping points in the dynamics of the Earth's ice
+        sheets. I also taught on a range of undergraduate and master's units in the
+        <a href="https://www.bristol.ac.uk/geography/" target="_blank">School of Geographical
+        Sciences</a>, University of Bristol, covering topics such as glaciology, climate change
+        and risk, statistics and scientific programming.
+      </p>
+      <p>
+        Prior to that, I was a postdoctoral research fellow at
+        <a href="https://corp.northumbria.ac.uk/research/1/our-peaks-of-excellence/future-of-ice-on-earth/"
+           target="_blank">Northumbria University</a>, working on the NSFGEO-NERC joint-funded
+        project "A new mechanistic framework for modelling rift processes in Antarctic ice
+        shelves", implementing new techniques for representing brittle ice fracture processes
+        in continuum models.
+      </p>
+      <p>
+        My background is in physics, which I studied at the
+        <a href="https://www.physics.manchester.ac.uk/" target="_blank">University of Manchester</a>.
+        I then undertook a PhD at the University of Bristol, supervised by
+        <a href="https://research-information.bris.ac.uk/en/persons/jonathan-l-bamber/"
+           target="_blank">Professor Jonathan Bamber</a> and
+        <a href="https://www.northumbria.ac.uk/about-us/our-staff/g/hilmar-gudmundsson/"
+           target="_blank">Professor Hilmar Gudmundsson</a>. My research examined the role
+        that ice shelves play in controlling the dynamics of the Antarctic Ice Sheet, with a
+        particular focus on the Larsen C Ice Shelf.
+      </p>
+    </section>
+
+    <!-- ── Research ── -->
+    <section id="research">
+      <h2>Research Interests</h2>
+      <p>
+        I am a glaciologist, with primary research interests in the dynamics of glaciers and
+        ice sheets, investigated through the use of numerical ice sheet models and satellite
+        remote sensing data.
+      </p>
+      <ul class="research-list">
+        <li>Ice shelf dynamics and buttressing — the role of floating ice shelves in
+            regulating the flow of grounded ice into the ocean</li>
+        <li>Calving, rifting, and fracture mechanics — processes governing the break-up
+            of ice shelves and their long-term stability</li>
+        <li>Earth System Modelling — development of coupled ice sheet–ocean–atmosphere
+            models within the UKESM framework</li>
+        <li>Ocean–ice sheet interactions — the influence of the North Atlantic subpolar
+            gyre and ocean heat on the Greenland Ice Sheet</li>
+        <li>Tipping points and abrupt change — potential for rapid, non-linear transitions
+            in the cryosphere under future climate scenarios</li>
+        <li>Sea-level change — projections of the ice sheet contribution to global and
+            regional sea-level rise</li>
+      </ul>
+    </section>
+
+    <!-- ── Publications ── -->
+    <section id="publications">
+      <h2>Publications</h2>
+
+      <h3 class="cv-subsection">Journal Articles</h3>
+      <ul class="pub-list">
+
+        <li>
+          <div class="pub-title">
+            <a href="https://doi.org/10.5194/esd-17-475-2026" target="_blank">Response of
+            ice sheets, sea-ice and sea level in climate stabilisation and reversibility
+            simulations using a state-of-the-art Earth System Model</a>
+          </div>
+          <div class="pub-authors">
+            Robin S. Smith, Tarkan A. Bilge, Thomas J. Bracegirdle, Paul R. Holland,
+            Till Kuhlbrodt, Charlotte Lang, Spencer Liddicoat, <strong>Tom Mitcham</strong>,
+            Jane Mulcahy, Kaitlin A. Naughten, Andrew Orr, Julien Palmieri, Antony J. Payne,
+            Steven Rumbold, Marc Stringer, Ranjini Swaminathan, Sarah Taylor, Jeremy Walton
+            &amp; Colin Jones
+          </div>
+          <div class="pub-venue"><em>Earth System Dynamics</em>, <strong>2026</strong>, 17, 475–493</div>
+          <div class="pub-links">
+            <a href="https://doi.org/10.5194/esd-17-475-2026" target="_blank">DOI</a>
+            <button class="pub-abstract-btn" data-target="abs-smith2026">[Abstract]</button>
+            <button class="pub-bibtex-btn"  data-target="bib-smith2026">[BibTeX]</button>
+          </div>
+          <div class="pub-abstract" id="abs-smith2026">We have conducted an ensemble of
+            idealised climate overshoot simulations in a state-of-the-art Earth System Model
+            in which global mean temperature is increased at a constant rate to global warming
+            levels (GWLs) from 1.5 to 5 °C by prescribing constant CO2 emissions, followed by
+            a 50 year period of zero CO2 emissions started at different GWLs, and then a period
+            of cooling in which CO2 is removed from the atmosphere. We give an overview of the
+            ice sheet, sea-ice and sea level responses in these simulations highlighting long
+            term responses at different GWLs and discuss the degree to which those responses
+            can be simply reversed as global surface temperature cools. We show a broad divide
+            between the two hemispheres, in which Northern Hemisphere polar processes have
+            larger direct responses to warming which are more simply reversible than those in
+            the Southern Hemisphere.
+
+            Cessation of CO2 emissions at most GWLs stabilises surface temperatures at high
+            northern latitudes, although a slow warming trend continues at high southern
+            latitudes. Northern Hemisphere sea-ice extent and Greenland surface mass balance
+            both stabilise under zero CO2 emissions and appear to return toward preindustrial
+            levels along with surface temperatures when CO2 is sequestered, but Southern
+            Hemisphere sea-ice continues to decline under zero emissions and does not simply
+            increase again as global temperatures cool. Likewise, the Antarctic circumpolar
+            westerlies exhibit strengthening and shift poleward under global warming, but do
+            not simply return to their preindustrial state when the climate is cooled, with
+            implications for ocean circulation and Antarctic surface mass balance. The
+            thermosteric contributions to global mean sea level from ocean heat uptake and the
+            Greenland ice sheet continue when CO2 emissions are ceased or reversed, at rates
+            which slowly decline on centennial timescales. The net mass balance of Antarctica
+            and its contribution to sea level do not simply scale with global temperature; they
+            result from a complex interaction between the basal and surface mass balances, the
+            ice-dynamic response to those forcings and significant trends inherent to the
+            initialisation of our ice sheet model state.
+          </div>
+          <div class="pub-bibtex" id="bib-smith2026">@Article{esd-17-475-2026,
+AUTHOR = {Smith, R. S. and Bilge, T. A. and Bracegirdle, T. J. and Holland, P. R. and Kuhlbrodt, T. and Lang, C. and Liddicoat, S. and Mitcham, T. and Mulcahy, J. and Naughten, K. A. and Orr, A. and Palmieri, J. and Payne, A. J. and Rumbold, S. and Stringer, M. and Swaminathan, R. and Taylor, S. and Walton, J. and Jones, C.},
+TITLE = {Response of ice sheets, sea-ice and sea level in climate stabilisation and reversibility simulations using a state-of-the-art Earth System Model},
+JOURNAL = {Earth System Dynamics},
+VOLUME = {17},
+YEAR = {2026},
+NUMBER = {3},
+PAGES = {475--493},
+URL = {https://esd.copernicus.org/articles/17/475/2026/},
+DOI = {10.5194/esd-17-475-2026}
+}</div>
+        </li>
+
+        <li>
+          <div class="pub-title">
+            <a href="https://doi.org/10.1017/jog.2022.25" target="_blank">On the validity
+            of the stress-flow angle as a metric for ice-shelf stability</a>
+          </div>
+          <div class="pub-authors"><strong>Tom Mitcham</strong> &amp; G. Hilmar Gudmundsson</div>
+          <div class="pub-venue">
+            <em>Journal of Glaciology</em>, <strong>2022</strong>, 68(271), 1038–1040
+          </div>
+          <div class="pub-links">
+            <a href="https://doi.org/10.1017/jog.2022.25" target="_blank">DOI</a>
+            <button class="pub-bibtex-btn" data-target="bib-mitcham2022a">[BibTeX]</button>
+          </div>
+          <div class="pub-bibtex" id="bib-mitcham2022a">@article{mitcham2022validity,
+  author  = {Mitcham, Tom and Gudmundsson, G. Hilmar},
+  title   = {On the validity of the stress-flow angle as a metric for ice-shelf stability},
+  journal = {Journal of Glaciology},
+  year    = {2022},
+  volume  = {68},
+  number  = {271},
+  pages   = {1038--1040},
+  doi     = {10.1017/jog.2022.25}
+}</div>
+        </li>
+
+        <li>
+          <div class="pub-title">
+            <a href="https://doi.org/10.5194/tc-16-883-2022" target="_blank">The instantaneous
+            impact of calving and thinning on the Larsen C Ice Shelf</a>
+          </div>
+          <div class="pub-authors">
+            <strong>Tom Mitcham</strong>, G. Hilmar Gudmundsson &amp; Jonathan L. Bamber
+          </div>
+          <div class="pub-venue"><em>The Cryosphere</em>, <strong>2022</strong>, 16, 883–901</div>
+          <div class="pub-links">
+            <a href="https://doi.org/10.5194/tc-16-883-2022" target="_blank">DOI</a>
+            <button class="pub-abstract-btn" data-target="abs-mitcham2022b">[Abstract]</button>
+            <button class="pub-bibtex-btn"  data-target="bib-mitcham2022b">[BibTeX]</button>
+          </div>
+          <div class="pub-abstract" id="abs-mitcham2022b">The Antarctic Peninsula has seen
+            rapid and widespread changes in the extent of its ice shelves in recent decades,
+            including the collapse of the Larsen A and B ice shelves in 1995 and 2002,
+            respectively. In 2017 the Larsen C Ice Shelf (LCIS) lost around 10 % of its area
+            by calving one of the largest icebergs ever recorded (A68). This has raised
+            questions about the structural integrity of the shelf and the impact of any changes
+            in its extent on the flow of its tributary glaciers. In this work, we used an ice
+            flow model to study the instantaneous impact of changes in the thickness and extent
+            of the LCIS on ice dynamics and in particular on changes in the grounding line flux
+            (GLF). We initialised the model to a pre-A68 calving state and first replicated the
+            calving of the A68 iceberg. We found that there was a limited instantaneous impact
+            on upstream flow – with speeds increasing by less than 10 % across almost all of
+            the shelf – and a 0.28 % increase in GLF. This result is supported by observations
+            of ice velocity made before and after the calving event. We then perturbed the
+            ice-shelf geometry through a series of instantaneous, idealised calving and thinning
+            experiments of increasing magnitude. We found that significant changes to the
+            geometry of the ice shelf, through both calving and thinning, resulted in limited
+            instantaneous changes in GLF. For example, to produce a doubling of GLF from
+            calving, the new calving front needed to be moved to 5 km from the grounding line,
+            removing almost the entire ice shelf. For thinning, over 200 m of the ice-shelf
+            thickness had to be removed across the whole shelf to produce a doubling of GLF.
+            Calculating the instantaneous increase in GLF (607 %) after removing the entire ice
+            shelf allowed us to quantify the total amount of buttressing provided by the LCIS.
+            From this, we identified that the region of the ice shelf in the first 5 km
+            downstream of the grounding line provided over 80 % of the buttressing capacity of
+            the shelf. This is due to the large resistive stresses generated in the narrow,
+            local embayments downstream of the largest tributary glaciers.
+          </div>
+          <div class="pub-bibtex" id="bib-mitcham2022b">@article{mitcham2022instantaneous,
+  author  = {Mitcham, Tom and Gudmundsson, G. Hilmar and Bamber, Jonathan L.},
+  title   = {The instantaneous impact of calving and thinning on the {Larsen C Ice Shelf}},
+  journal = {The Cryosphere},
+  year    = {2022},
+  volume  = {16},
+  pages   = {883--901},
+  doi     = {10.5194/tc-16-883-2022}
+}</div>
+        </li>
+
+      </ul>
+
+      <h3 class="cv-subsection">Thesis</h3>
+      <ul class="pub-list">
+
+        <li>
+          <div class="pub-title">
+            <a href="https://research-information.bris.ac.uk/en/studentTheses/the-role-of-ice-shelves-in-antarctic-ice-dynamics/"
+               target="_blank">The role of ice shelves in Antarctic ice dynamics</a>
+          </div>
+          <div class="pub-authors"><strong>Tom Mitcham</strong></div>
+          <div class="pub-venue">PhD thesis, University of Bristol, <strong>2022</strong></div>
+          <div class="pub-venue">Supervised by Jonathan L. Bamber and G. Hilmar Gudmundsson</div>
+          <div class="pub-links">
+            <a href="https://research-information.bris.ac.uk/en/studentTheses/the-role-of-ice-shelves-in-antarctic-ice-dynamics/"
+               target="_blank">Link</a>
+            <button class="pub-abstract-btn" data-target="abs-mitcham2022thesis">[Abstract]</button>
+            <button class="pub-bibtex-btn"  data-target="bib-mitcham2022thesis">[BibTeX]</button>
+          </div>
+          <div class="pub-abstract" id="abs-mitcham2022thesis">Ice shelves can control ice
+            discharge from the Antarctic Ice Sheet (AIS) by providing resistive forces to their
+            tributary glaciers – a process known as ice-shelf buttressing. The loss of
+            buttressing through ice-shelf thinning or collapse is driving the present, observed
+            mass loss from the AIS and its associated contribution to global sea level rise. The
+            aim of this thesis is to better understand the buttressing capacity of ice shelves,
+            and where within ice shelves that buttressing is generated. The Larsen C Ice Shelf
+            (LCIS) is a particular focus as its future viability has been called into question
+            following the collapse of its neighbouring ice shelves.
+
+            The first research chapter uses an ice flow model to calculate the total buttressing
+            provided by the LCIS. It is found that the majority of the buttressing is generated
+            in the first few kilometres of the ice shelf downstream of the grounding line. In
+            the second research chapter, transient model experiments demonstrate that LCIS
+            grounding line dynamics and mass loss are most sensitive to the calving of ice close
+            to the grounding line, and that the loss of the Bawden and Gipps Ice Rises would
+            have a very limited, direct impact on the grounded tributary glaciers.
+
+            The third research chapter uses Antarctic-wide modelling experiments to reveal that
+            the total buttressing capacity of Antarctic ice shelves varies by two orders of
+            magnitude. It is also found that the distribution of the buttressing within an ice
+            shelf is controlled by the ice-shelf geometry, and that a greater area of
+            Antarctica's ice shelves could be considered 'passive' than previously thought.
+
+            In the final research chapter, it is shown that the 'stress-flow angle' – a metric
+            proposed to describe the structural integrity of ice shelves – is not
+            frame-indifferent, which raises problems for its use as a metric of ice-shelf
+            stability. Overall, this thesis develops a novel approach to quantifying the total
+            buttressing capacity of ice shelves, and by doing so provides new insights into
+            which regions of Antarctica's ice shelves are most important for buttressing the
+            grounded ice sheet.
+          </div>
+          <div class="pub-bibtex" id="bib-mitcham2022thesis">@phdthesis{mitcham2022role,
+  author = {Mitcham, Tom},
+  title  = {The role of ice shelves in {Antarctic} ice dynamics},
+  school = {University of Bristol},
+  year   = {2022}
+}</div>
+        </li>
+
+      </ul>
+    </section>
+
+    <!-- ── CV ── -->
+    <section id="cv">
+      <h2>CV</h2>
+
+      <h3 class="cv-subsection">Positions</h3>
+      <ul class="cv-list">
+        <li>
+          <div class="cv-year">2026 – </div>
+          <div>
+            <div class="cv-role">Research Fellow in Earth System Modelling</div>
+            <div class="cv-place">Met Office, Exeter</div>
+            <div class="cv-place">National Centre for Atmospheric Science (NCAS), University of Leeds</div>
+          </div>
+        </li>
+        <li>
+          <div class="cv-year">2023 – 2026</div>
+          <div>
+            <div class="cv-role">Senior Research Associate in Ice-Sheet Modelling</div>
+            <div class="cv-place">Centre for Polar Observation and Modelling (CPOM), University of Bristol</div>
+            <div class="cv-place">Bristol Glaciology Centre, School of Geographical Sciences, University of Bristol</div>
+          </div>
+        </li>
+        <li>
+          <div class="cv-year">2022 – 2023</div>
+          <div>
+            <div class="cv-role">Lecturer in Physical Geography</div>
+            <div class="cv-place">School of Geographical Sciences, University of Bristol</div>
+          </div>
+        </li>
+        <li>
+          <div class="cv-year">2021 – 2022</div>
+          <div>
+            <div class="cv-role">Research Fellow</div>
+            <div class="cv-place">Department of Geography and Environmental Sciences, Northumbria University</div>
+          </div>
+        </li>
+      </ul>
+
+      <h3 class="cv-subsection">Honorary Positions</h3>
+      <ul class="cv-list">
+        <li>
+          <div class="cv-year">2026 –</div>
+          <div>
+            <div class="cv-role">Honorary Senior Research Associate</div>
+            <div class="cv-place">Bristol Glaciology Centre, School of Geographical Sciences, University of Bristol</div>
+          </div>
+        </li>
+      </ul>
+
+      <h3 class="cv-subsection">Education</h3>
+      <ul class="cv-list">
+        <li>
+          <div class="cv-year">2017 – 2022</div>
+          <div>
+            <div class="cv-role">PhD in Glaciology</div>
+            <div class="cv-place">
+              Bristol Glaciology Centre, School of Geographical Sciences, University of Bristol
+            </div>
+            <div class="cv-place">Thesis:
+              <a href="https://research-information.bris.ac.uk/en/studentTheses/the-role-of-ice-shelves-in-antarctic-ice-dynamics/"
+                 target="_blank"><em>The role of ice shelves in Antarctic ice dynamics</em></a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="cv-year">2013 – 2017</div>
+          <div>
+            <div class="cv-role">MPhys in Physics (Hons)</div>
+            <div class="cv-place">Department of Physics and Astronomy, University of Manchester</div>
+          </div>
+        </li>
+      </ul>
+
+    </section>
+
+    <!-- ── Teaching ── -->
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <h3 class="cv-subsection" style="margin-bottom:0.8rem">
+        School of Geographical Sciences, University of Bristol
+      </h3>
+
+      <h4 class="cv-subsection" style="margin-top:1.6rem;font-size:0.82rem;padding-left:1rem">
+        Unit Convenor
+      </h4>
+      <ul class="course-list">
+        <li>
+          <span>GEOGM0045: Quantifying Climate Risks</span>
+          <span class="course-term">Spring 2023</span>
+        </li>
+      </ul>
+
+      <h4 class="cv-subsection" style="margin-top:1.6rem;font-size:0.82rem;padding-left:1rem">
+        Lecturer
+      </h4>
+      <ul class="course-list">
+        <li>
+          <span>GEOG16001: World in Crisis</span>
+          <span class="course-term">Autumn 2025</span>
+        </li>
+        <li>
+          <span>GEOG30008: Sea Levels: Past, Present and Future</span>
+          <span class="course-term">Autumn 2023</span>
+        </li>
+        <li>
+          <span>GEOG10003: Key Concepts in Geography</span>
+          <span class="course-term">Autumn 2023</span>
+        </li>
+        <li>
+          <span>GEOG10004: Introduction to Quantitative Geography</span>
+          <span class="course-term">Spring 2023</span>
+        </li>
+      </ul>
+
+      <h4 class="cv-subsection" style="margin-top:1.6rem;font-size:0.82rem;padding-left:1rem">
+        Field Trips
+      </h4>
+      <ul class="course-list">
+        <li>
+          <span>GEOG20035: Glaciology &amp; Hydrology Field Trip, Arolla, Switzerland</span>
+          <span class="course-term">Spring 2023</span>
+        </li>
+      </ul>
+
+      <h4 class="cv-subsection" style="margin-top:1.6rem;font-size:0.82rem;padding-left:1rem">
+        Supervision
+      </h4>
+      <ul class="course-list">
+        <li>
+          <span>
+            <span style="display:inline-block;min-width:7em">Co-supervisor:</span>
+            MSc dissertation in climate model data analysis
+          </span>
+          <span class="course-term">Summer 2025</span>
+        </li>
+        <li>
+          <span>
+            <span style="display:inline-block;min-width:7em">Supervisor:</span>
+            3 MSc dissertations on environmental modelling and data analysis
+          </span>
+          <span class="course-term">Summer 2023</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ── Contact ── -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact-grid">
+        <address>
+          <a href="mailto:thomas.mitcham@metoffice.gov.uk"
+             target="_blank">thomas.mitcham@metoffice.gov.uk</a><br>
+          Met Office,<br>
+          Fitzroy Road,<br>
+          Exeter, UK, EX1 3PB
+        </address>
+        <address>
+          <a href="mailto:tom.mitcham@bristol.ac.uk"
+             target="_blank">tom.mitcham@bristol.ac.uk</a><br>
+          School of Geographical Sciences,<br>
+          University of Bristol,<br>
+          University Road,<br>
+          Bristol, UK, BS8 1SS
+        </address>
+      </div>
+    </section>
+
+  </main>
+
+  <a href="#" class="back-to-top">↑ Top</a>
+
+  <script>
+    // Active nav highlighting via IntersectionObserver
+    const navLinks = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('section[id]');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
+          });
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+
+    // Abstract toggles
+    document.querySelectorAll('.pub-abstract-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const panel = document.getElementById(btn.dataset.target);
+        const open = panel.classList.toggle('open');
+        btn.textContent = open ? '[Hide abstract]' : '[Abstract]';
+      });
+    });
+
+    // BibTeX toggles
+    document.querySelectorAll('.pub-bibtex-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const panel = document.getElementById(btn.dataset.target);
+        const open = panel.classList.toggle('open');
+        btn.textContent = open ? '[Hide BibTeX]' : '[BibTeX]';
+      });
+    });
+  </script>
+
+</body>
+</html>
