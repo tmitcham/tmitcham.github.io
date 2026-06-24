@@ -111,7 +111,7 @@
       display: flex;
       align-items: center;
       gap: 2rem;
-      padding-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
       border-bottom: 1px solid var(--rule);
       margin-bottom: 1.2rem;
     }
@@ -360,6 +360,13 @@
     }
     .back-to-top:hover { color: var(--accent); }
 
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
     /* ── Responsive ──────────────────────────────────── */
     @media (max-width: 520px) {
       header { flex-direction: column; gap: 1.2rem; }
@@ -395,7 +402,7 @@
           National Centre for Atmospheric Science (NCAS), University of Leeds
         </p>
         <div class="header-links">
-          <div style="width:100%">
+          <div style="width:100%; margin-bottom: 0.8rem">
             <a href="mailto:thomas.mitcham@metoffice.gov.uk" target="_blank">thomas.mitcham@metoffice.gov.uk</a>
           </div>
           <a href="https://scholar.google.co.uk/citations?user=I32lzgUAAAAJ&hl=en&inst=10389243673639785577"
@@ -475,14 +482,15 @@
     <section id="research">
       <h2>Research Interests</h2>
       <p>
-        My primary research interests in the dynamics of glaciers and ice sheets, 
+        My primary research interests are in the dynamics of glaciers and ice sheets, 
         and interactions between these components of the cryosphere and the wider Earth system. 
       </p>
       <ul class="research-list">
-        <li>Ice sheet dynamics — ice shelf buttressing, calving and fracture, subglacial hydrology</li>
-        <li>Earth system modelling and ice-ocean-atmosphere interactions</li>
-        <li>Impacts and feedbacks — sea-level rise projections, ice sheet tipping points,
-            and the consequences of ice sheet change for the wider Earth system </li>
+        <li>Ice sheet dynamics — including ice shelf buttressing, calving and fracture, 
+        subglacial hydrology, and numerical modelling of these processes</li>
+        <li>Earth system modelling — ice-ocean-atmosphere interactions and feedbacks</li>
+        <li>Impacts — sea-level rise projections, ice sheet instabilities,
+            and the consequences of ice sheet change for other Earth system components </li>
       </ul>
     </section>
 
@@ -866,6 +874,10 @@ DOI = {10.5194/esd-17-475-2026}
   </main>
 
   <a href="#" class="back-to-top">↑ Top</a>
+
+  <footer>
+    <p>© 2026 Tom Mitcham</p>
+  </footer>
 
   <script>
     // Active nav highlighting via IntersectionObserver
